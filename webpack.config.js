@@ -50,7 +50,12 @@ var config = {
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({template: 'index.html'}),
     new CleanWebpackPlugin(['dist']),
-  ]
-
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devtool: 'inline-source-map',
+  devServer: { 
+    contentBase: "./dist",
+    hot: true
+  }
 }
 module.exports = config

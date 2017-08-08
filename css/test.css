@@ -1,8 +1,8 @@
  body {
   /* background: red; */
-  background: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=795051715,767849351&fm=26&gp=0.jpg)
+  background: url()
 } 
 h1 {
   color: #f00;
-   background: url(../image/timg.jpg) 
+   /* background: url(../image/timg.jpg)  */
 }
