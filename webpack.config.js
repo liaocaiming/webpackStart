@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require("webpack")
 var HtmlWebpackPlugin = require("html-webpack-plugin")
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 var config = {
   // entry: './js/test.ts',
   // output: {
@@ -47,7 +48,8 @@ var config = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new HtmlWebpackPlugin({template: 'index.html'})
+    new HtmlWebpackPlugin({template: 'index.html'}),
+    new CleanWebpackPlugin(['dist']),
   ]
 
 }

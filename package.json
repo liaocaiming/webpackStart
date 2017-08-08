@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "eslint": "^4.4.0",
     "eslint-config-standard": "^10.2.1",
