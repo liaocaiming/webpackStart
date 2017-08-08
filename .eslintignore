@@ -1,0 +1,6 @@
+build/*.js
+config/*.js
+src/assets
+src/util
+src/views/user/wxAddress.vue
+static
