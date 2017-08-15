@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require("webpack")
 var HtmlWebpackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 var config = {
   // entry: './js/test.ts',
   // output: {
@@ -14,7 +15,7 @@ var config = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name][chunkhash].js'
+    filename: 'js/[name][hash].js'
     // chunkFilename: "[id].js"
   },
   module: {
@@ -41,8 +42,14 @@ var config = {
         use: ["babel-loader", "eslint-loader"]
       },
       {
-        test: /\.(jpg | png | svg)$/,
-        use: ['file-loader']
+        test: /\.(jpg|png|svg)$/i,
+        use: [{
+          loader: "url-loader",
+          query: {
+            limit: 200,
+            name: "image/[name]-[hash].[ext]"
+          }
+        }]
       }
     ]
   },
@@ -50,12 +57,13 @@ var config = {
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({template: 'index.html'}),
     new CleanWebpackPlugin(['dist']),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   devtool: 'inline-source-map',
-  devServer: { 
-    contentBase: "./dist",
-    hot: true
-  }
+  // devServer: { 
+  //   contentBase: "./dist",
+  //   hot: true
+  // }
 }
 module.exports = config
